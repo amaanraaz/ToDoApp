@@ -15,9 +15,8 @@ function App() {
         <input type='text' placeholder='Enter task here...' value={val}
           onChange={(event)=>{
             setCurrentTask(event.target.value);
-            setVal(event.target.value);
-            
-            }}
+            setVal(event.target.value);}
+            }
             onKeyDown={(event)=>{
               if(event.keyCode==13){
                 settodoList([...todoList,currentTask]);
@@ -27,8 +26,18 @@ function App() {
             ></input>
 
         <button onClick={()=>{
+          if(currentTask!=='' && currentTask!==' '){
+            console.log(currentTask)
           settodoList([...todoList,currentTask]);
           setVal('');
+          setCurrentTask("");
+        }
+
+          
+          else{
+            alert('Enter Value!!')
+          }
+          
         }}>Add</button>
 
       </div>
